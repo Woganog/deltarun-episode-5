@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://sg7644vdqrvm" path="res://obj/player/kris-sprites/spr_kris_plat_runstop/spr_kris_plat_runstop_1.png" id="18_n3ep3"]
 [ext_resource type="Texture2D" uid="uid://dt1yt5o8o07qw" path="res://obj/player/kris-sprites/spr_kris_plat_runstop/spr_kris_plat_runstop_2.png" id="19_nxmly"]
 [ext_resource type="Texture2D" uid="uid://vje4uv6i0cm3" path="res://obj/player/kris-sprites/spr_kris_plat_slash_air/spr_kris_plat_slash_air_0.png" id="22_4n2pi"]
-[ext_resource type="Script" uid="uid://cidt6rlblnfrs" path="res://obj/player/kris_sprite.gd" id="23_mf5y8"]
 [ext_resource type="Texture2D" uid="uid://d2ml8iimm751b" path="res://obj/player/kris-sprites/spr_kris_plat_slash_air/spr_kris_plat_slash_air_8.png" id="30_3k843"]
 [ext_resource type="Texture2D" uid="uid://cx4eogxfrwi8f" path="res://obj/player/kris-sprites/spr_kris_plat_slash_air/spr_kris_plat_slash_air_9.png" id="31_mo27d"]
 [ext_resource type="Texture2D" uid="uid://b7w3cvks0f7ou" path="res://obj/player/kris-sprites/spr_kris_plat_slash_air/spr_kris_plat_slash_air_10.png" id="32_rkfk1"]
@@ -1330,7 +1329,6 @@ animation = &"idle"
 autoplay = "idle"
 centered = false
 offset = Vector2(-6, 0)
-script = ExtResource("23_mf5y8")
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2138461271]
 wait_time = 0.1

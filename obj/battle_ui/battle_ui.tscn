@@ -7,12 +7,12 @@
 script = ExtResource("1_ulk1x")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=196781641]
-offset_right = 40.0
+offset_right = 32.0
 offset_bottom = 480.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=574646310]
-offset_left = 600.0
+offset_left = 608.0
 offset_right = 640.0
 offset_bottom = 480.0
 color = Color(0, 0, 0, 1)

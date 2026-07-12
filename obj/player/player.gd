@@ -45,12 +45,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if jump_state != JumpStates.START:
 			coyote_timer.start()
-		if velocity.x == 0 and jump_state == JumpStates.FALL:
-			jump_state = JumpStates.LAND
-			if facing_left:
-				anim.play("land_l")
-			else:
-				anim.play("land_r")
 		if sword_state == SwordStates.AIR:
 			if sprite.animation == "slash_air" and sprite.frame < 2:
 				jump_state = JumpStates.IDLE
@@ -159,6 +153,13 @@ func _physics_process(delta: float) -> void:
 		sword_state = SwordStates.IDLE
 	
 	move_and_slide()
+	
+	if is_on_floor() and velocity.x == 0 and jump_state == JumpStates.FALL:
+		jump_state = JumpStates.LAND
+		if facing_left:
+			anim.play("land_l")
+		else:
+			anim.play("land_r")
 	
 	# Fix wall animations
 	if velocity.x == 0.0 and is_on_wall() and is_on_floor() and sprite.animation != "idle" and jump_state == JumpStates.IDLE and sword_state == SwordStates.IDLE:
