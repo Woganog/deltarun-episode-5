@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://brd1dk2x0vo2b"]
+
+[ext_resource type="Script" uid="uid://cfwf7w826827v" path="res://obj/battle_ui/battle_ui.gd" id="1_ulk1x"]
+[ext_resource type="AudioStream" uid="uid://bfosd08oe6qnx" path="res://mus/Flowerman_Arrangement.ogg" id="2_vmy7s"]
+
+[node name="BattleUI" type="CanvasLayer" unique_id=1735771470]
+script = ExtResource("1_ulk1x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=196781641]
+offset_right = 40.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=574646310]
+offset_left = 600.0
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1055197218]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -52.0
+offset_right = 640.0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="HPLabel" type="RichTextLabel" parent="." unique_id=727237532]
+offset_left = 44.0
+offset_top = 431.0
+offset_right = 271.0
+offset_bottom = 508.0
+text = "gris hp: "
+fit_content = true
+scroll_active = false
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="." unique_id=497176211]
+process_mode = 3
+stream = ExtResource("2_vmy7s")
+autoplay = true
+bus = &"Music"

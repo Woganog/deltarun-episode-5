@@ -1,0 +1,189 @@
+[gd_scene format=4 uid="uid://d1mu3t77thfcp"]
+
+[ext_resource type="Texture2D" uid="uid://cngquci7qy2jm" path="res://obj/tileset.png" id="1_umbte"]
+[ext_resource type="PackedScene" uid="uid://ckyl2dicvd77h" path="res://obj/player/player.tscn" id="2_amxg5"]
+[ext_resource type="PackedScene" uid="uid://4qvdv11ako5m" path="res://obj/act_ui/act_ui.tscn" id="3_3263u"]
+[ext_resource type="PackedScene" uid="uid://cvlncduev7au" path="res://obj/flowery/enemy.tscn" id="3_ynswa"]
+[ext_resource type="PackedScene" uid="uid://l1vywgwj0uqh" path="res://obj/actable/actable.tscn" id="4_umbte"]
+[ext_resource type="Script" uid="uid://dq4rkf1pg6gmn" path="res://obj/trigger.gd" id="6_dvny0"]
+[ext_resource type="Script" uid="uid://dosmppfmjfjlg" path="res://scenes/battle_area.gd" id="7_xwrkq"]
+[ext_resource type="AudioStream" uid="uid://d8j8pksskp4m" path="res://mus/cliff.ogg" id="8_nrstc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynswa"]
+texture = ExtResource("1_umbte")
+texture_region_size = Vector2i(44, 44)
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+11:0/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+8:4/0 = 0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+9:4/0 = 0
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+10:4/0 = 0
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+11:4/0 = 0
+11:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -22, 22, -22, 22, 22, -22, 22)
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+1:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+9:6/0 = 0
+11:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+10:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o56hc"]
+tile_size = Vector2i(44, 44)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_ynswa")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o56hc"]
+size = Vector2(516, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy3sh"]
+size = Vector2(600, 400)
+
+[node name="TestWorld" type="Node2D" unique_id=1855563134]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1007527287]
+tile_map_data = PackedByteArray("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AAAdAP//AQAAAAIAAAAeAP//AQAAAAIAAAAfAP//AQAAAAIAAAAgAP//AQAAAAIAAAAhAP//AQAAAAIAAAAiAP//AQAAAAIAAAAjAP//AQAAAAIAAAAjAP7/AQAAAAIAAAAiAP7/AQAAAAIAAAAhAP7/AQAAAAIAAAAgAP7/AQAAAAIAAAAfAP7/AQAAAAIAAAAeAP7/AQAAAAIAAAAdAP7/AQAAAAIAAAAcAP7/AQAAAAIAAAAbAP7/AQAAAAIAAAAaAP7/AQAAAAIAAAAZAP7/AQAAAAIAAAAYAP7/AQAAAAIAAAAXAP7/AQAAAAIAAAAWAP7/AQAAAAIAAAAVAP7/AQAAAAIAAAAUAP7/AQAAAAIAAAATAP7/AQAAAAIAAAASAP7/AQAAAAIAAAARAP7/AQAAAAIAAAAQAP7/AQAAAAIAAAAPAP7/AQAAAAIAAAAOAP7/AQAAAAIAAAANAP7/AQAAAAIAAAAMAP7/AQAAAAIAAAALAP7/AQAAAAIAAAAKAP7/AQAAAAIAAAAJAP7/AQAAAAIAAAAIAP7/AQAAAAIAAAAHAP7/AQAAAAIAAAAGAP7/AQAAAAIAAAAFAP7/AQAAAAIAAAAEAP7/AQAAAAIAAAADAP7/AQAAAAIAAAACAP7/AQAAAAIAAAABAP7/AQAAAAIAAAA=")
+tile_set = SubResource("TileSet_o56hc")
+
+[node name="Player" parent="." unique_id=721571662 node_paths=PackedStringArray("camera") instance=ExtResource("2_amxg5")]
+position = Vector2(134, 346)
+camera = NodePath("Camera")
+
+[node name="Camera" type="Camera2D" parent="Player" unique_id=191692530]
+scale = Vector2(2, 2)
+offset = Vector2(0, -20)
+limit_left = 0
+limit_top = -44
+limit_right = 1628
+limit_bottom = 480
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+
+[node name="Enemy" parent="." unique_id=1517298170 instance=ExtResource("3_ynswa")]
+position = Vector2(1491, 223)
+
+[node name="ActUI" parent="." unique_id=510766747 instance=ExtResource("3_3263u")]
+
+[node name="Actables" type="Node" parent="." unique_id=776153281]
+
+[node name="Actable" parent="Actables" unique_id=775473418 instance=ExtResource("4_umbte")]
+position = Vector2(394, 126)
+
+[node name="Actable2" parent="Actables" unique_id=1312581248 instance=ExtResource("4_umbte")]
+position = Vector2(177, 108)
+
+[node name="Actable3" parent="Actables" unique_id=1711632731 instance=ExtResource("4_umbte")]
+position = Vector2(264, 221)
+
+[node name="Actable4" parent="Actables" unique_id=40039573 instance=ExtResource("4_umbte")]
+position = Vector2(688, 141)
+
+[node name="Actable5" parent="Actables" unique_id=1834655624 instance=ExtResource("4_umbte")]
+position = Vector2(1013, 92)
+
+[node name="Actable6" parent="Actables" unique_id=1671052508 instance=ExtResource("4_umbte")]
+position = Vector2(1013, 43)
+
+[node name="Trigger" type="Area2D" parent="." unique_id=2126390276]
+position = Vector2(1324, 189)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("6_dvny0")
+
+[node name="Collision" type="CollisionShape2D" parent="Trigger" unique_id=870884542]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_o56hc")
+
+[node name="BattleCam" type="Camera2D" parent="Trigger" unique_id=1814211747]
+position = Vector2(-16, 35)
+enabled = false
+
+[node name="AreaMusic" type="AudioStreamPlayer" parent="Trigger" unique_id=1749867722]
+process_mode = 3
+stream = ExtResource("8_nrstc")
+autoplay = true
+bus = &"Music"
+
+[node name="BattleArea" type="Area2D" parent="." unique_id=1624654971]
+position = Vector2(1315, 195)
+collision_layer = 64
+collision_mask = 8
+script = ExtResource("7_xwrkq")
+
+[node name="Collision" type="CollisionShape2D" parent="BattleArea" unique_id=311769792]
+shape = SubResource("RectangleShape2D_cy3sh")
+
+[connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
+[connection signal="body_exited" from="BattleArea" to="BattleArea" method="_on_body_exited"]

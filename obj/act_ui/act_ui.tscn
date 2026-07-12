@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://4qvdv11ako5m"]
+
+[ext_resource type="Script" uid="uid://bbofcwy1vkrrh" path="res://obj/act_ui/act_ui.gd" id="1_ggbi5"]
+
+[node name="ActUI" type="CanvasLayer" unique_id=510766747]
+process_mode = 3
+visible = false
+script = ExtResource("1_ggbi5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=35604618]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_right = 640.0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.4392157)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1106996035]
+offset_left = 6.0
+offset_top = 363.0
+offset_right = 631.0
+offset_bottom = 473.0
+text = "ACTing or something idk"
+fit_content = true
+scroll_active = false

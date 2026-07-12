@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://l1vywgwj0uqh"]
+
+[ext_resource type="Texture2D" uid="uid://bm2fx2s4l3rpw" path="res://obj/ralsei/spr_plat_ralsei_splat.png" id="1_m6166"]
+[ext_resource type="Script" uid="uid://ehpdshqvvk83" path="res://obj/actable/actable.gd" id="1_yufqn"]
+[ext_resource type="Script" uid="uid://cpel3t1r5cy5s" path="res://obj/actable/act_indicator.gd" id="3_17b0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o56hc"]
+size = Vector2(80, 20)
+
+[node name="Actable" type="StaticBody2D" unique_id=775473418]
+collision_layer = 17
+collision_mask = 4
+script = ExtResource("1_yufqn")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1607198194]
+scale = Vector2(2, 2)
+texture = ExtResource("1_m6166")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=146042430]
+shape = SubResource("RectangleShape2D_o56hc")
+
+[node name="ActIndicator" type="ColorRect" parent="." unique_id=76605051]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+script = ExtResource("3_17b0t")
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=1270800427]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier" to="ActIndicator" method="_on_visible_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="ActIndicator" method="_on_visible_on_screen_notifier_screen_exited"]

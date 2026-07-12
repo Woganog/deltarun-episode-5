@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cvlncduev7au"]
+
+[ext_resource type="Script" uid="uid://ctuc3bc6cr3c1" path="res://obj/flowery/enemy.gd" id="1_sbpdd"]
+[ext_resource type="Texture2D" uid="uid://bnf6owjd5dplo" path="res://obj/flowery/spr_flowery_head_tilt_down.png" id="1_vhq5i"]
+[ext_resource type="PackedScene" uid="uid://l1vywgwj0uqh" path="res://obj/actable/actable.tscn" id="3_ncg1r"]
+[ext_resource type="Script" uid="uid://du310cvaarqvp" path="res://obj/actable/actable_enemy.gd" id="4_apg6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o56hc"]
+size = Vector2(38, 116)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cy3sh"]
+radius = 40.0
+height = 140.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1517298170]
+z_index = 4
+collision_layer = 8
+script = ExtResource("1_sbpdd")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=46641176]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_vhq5i")
+flip_h = true
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1273055114]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_o56hc")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2089228834]
+collision_layer = 8
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox" unique_id=1606998114]
+shape = SubResource("CapsuleShape2D_cy3sh")
+
+[node name="Actable" parent="." unique_id=775473418 instance=ExtResource("3_ncg1r")]
+collision_layer = 16
+script = ExtResource("4_apg6m")
+sprite_visible = false
+
+[node name="HPLabel" type="Label" parent="." unique_id=1934642937]
+offset_left = -34.0
+offset_top = 62.0
+offset_right = 38.0
+offset_bottom = 85.0
+text = "hp: 12/12"
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
