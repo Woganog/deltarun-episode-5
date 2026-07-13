@@ -45,20 +45,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if jump_state != JumpStates.START:
 			coyote_timer.start()
-		if sword_state == SwordStates.AIR:
-			if sprite.animation == "slash_air" and sprite.frame < 2:
-				jump_state = JumpStates.IDLE
-				sword_state = SwordStates.GROUND
-				if facing_left:
-					anim.play("slash_ground_l")
-				else:
-					anim.play("slash_ground_r")
-				anim.seek(0.534)
-				sprite.play("slash_ground")
-				sprite.frame = 8
-			else:
-				sword_state = SwordStates.IDLE
-		elif jump_state != JumpStates.LAND and jump_state != JumpStates.START:
+		if jump_state != JumpStates.LAND and jump_state != JumpStates.START:
 			jump_state = JumpStates.IDLE
 		if jump_state == JumpStates.START and sprite.animation != "jump_start":
 			jump_state = JumpStates.IDLE
@@ -131,6 +118,8 @@ func _physics_process(delta: float) -> void:
 				else:
 					anim.play("idle_r")
 	
+	move_and_slide()
+	
 	# Handle sword
 	if (Input.is_action_just_pressed("m_sword") or (buffer_sword == true and !is_on_floor())) and jump_state != JumpStates.START:
 		buffer_sword = false
@@ -152,14 +141,26 @@ func _physics_process(delta: float) -> void:
 	if (!Input.is_action_pressed("m_sword") or buffer_jump == true) and sword_can_stop and sword_state != SwordStates.IDLE:
 		sword_state = SwordStates.IDLE
 	
-	move_and_slide()
-	
-	if is_on_floor() and velocity.x == 0 and jump_state == JumpStates.FALL:
-		jump_state = JumpStates.LAND
-		if facing_left:
-			anim.play("land_l")
-		else:
-			anim.play("land_r")
+	if is_on_floor():
+		if velocity.x == 0 and jump_state == JumpStates.FALL:
+			jump_state = JumpStates.LAND
+			if facing_left:
+				anim.play("land_l")
+			else:
+				anim.play("land_r")
+		if sword_state == SwordStates.AIR:
+			if sprite.animation == "slash_air" and sprite.frame < 2:
+				jump_state = JumpStates.IDLE
+				sword_state = SwordStates.GROUND
+				if facing_left:
+					anim.play("slash_ground_l")
+				else:
+					anim.play("slash_ground_r")
+				anim.seek(0.534)
+				sprite.play("slash_ground")
+				sprite.frame = 8
+			else:
+				sword_state = SwordStates.IDLE
 	
 	# Fix wall animations
 	if velocity.x == 0.0 and is_on_wall() and is_on_floor() and sprite.animation != "idle" and jump_state == JumpStates.IDLE and sword_state == SwordStates.IDLE:
